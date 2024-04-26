@@ -1,6 +1,7 @@
 export enum ScreenEnum {
     Login = 'Login',
     LocationAccess = 'LocationAccess',
+    Movies="Movies",
     Home = 'Home',
     ScanQr = 'ScanQr',
     Promotion = 'Promotion',

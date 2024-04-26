@@ -6,26 +6,21 @@ import {
 } from "@components";
 import { useGenres, useOnfocusedHomeStatusBar } from "@hooks";
 import { translate } from "@language";
-import { navigate } from "@navigation";
+import { navigate, ScreenEnum } from "@navigation";
 import React from "react";
 import { View } from "react-native";
 import { styles } from "./styles";
 
 const HomeScreen: React.FC = () => {
   useOnfocusedHomeStatusBar();
-  const onPress = (second) => {
-    navigate("Genres");
+  const onPress = () => {
+    navigate(ScreenEnum.Movies);
   };
   const { genres } = useGenres();
   console.log("genres", genres);
   return (
     <View style={styles.container}>
-      <CustomHeader
-      // leftImageSource={image}
-      // centerImageSource={images.shipexBlue}
-      // notificationIcon={"notifications-outline"}
-      // userName={userName + " " + userSurname}
-      />
+      <CustomHeader title="Dimond Mall" />
       <MainModelCard />
       <ShipmentsHeader {...{ onPress }} title={translate("See All")} />
       <ModelList

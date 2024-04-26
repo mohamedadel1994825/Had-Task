@@ -11,19 +11,19 @@ import {
 } from "react-native";
 import FastImage from "react-native-fast-image";
 import { styles } from "./styles";
+import { CustomImage } from "@components";
 
 const MainModelCard: React.FC<Model> = memo(({}) => {
   const { movies, isLoading } = useMovies();
   const item = movies?.pages[3];
   const title = item?.title;
   const release_date = item?.release_date;
-  console.log("title===", title);
   return (
     <View>
       {isLoading ? (
         <ActivityIndicator />
       ) : (
-        <ImageBackground
+        <CustomImage
           testID="model-image"
           resizeMode={FastImage.resizeMode.cover}
           source={{ uri: `${imagesUrl}` + "/4woSOUD0equAYzvwhWBHIJDCM88.jpg" }}
@@ -34,7 +34,7 @@ const MainModelCard: React.FC<Model> = memo(({}) => {
             <Text style={styles.detailsText}>{release_date}</Text>
             {/* <Text style={styles.quantityText}>{quantity}</Text> */}
           </TouchableOpacity>
-        </ImageBackground>
+        </CustomImage>
       )}
     </View>
   );

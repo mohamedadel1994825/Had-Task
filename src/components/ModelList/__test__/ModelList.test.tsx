@@ -1,28 +1,44 @@
-import { render } from "@testing-library/react-native";
+import { fireEvent, render, waitFor } from "@testing-library/react-native";
 import React from "react";
 import { ModelList } from "../index";
 
 describe("ModelList", () => {
-  const mockModels = [
+  const models = [
     { id: 1, name: "Model 1" },
     { id: 2, name: "Model 2" },
     { id: 3, name: "Model 3" },
   ];
 
-  it("renders correctly", () => {
-    const { getByTestId } = render(<ModelList models={mockModels} />);
+  test("renders correctly", () => {
+    const { getByTestId, getByText } = render(
+      <ModelList models={models} data={undefined} renderItem={undefined} />
+    );
+    const list = getByTestId("custom-list");
+    expect(list).toBeDefined();
 
-    expect(getByTestId("shop-by-models")).toBeTruthy();
-    expect(getByTestId("custom-list")).toBeTruthy();
+    // Check if model items are rendered
+    models.forEach((model) => {
+      const modelItem = getByText(model.name);
+      expect(modelItem).toBeDefined();
+    });
   });
 
-  it("passes the correct props to CustomList", () => {
-    const { getByTestId } = render(<ModelList models={mockModels} />);
-    const customListComponent = getByTestId("custom-list");
+  test("pull to refresh triggers onPullToRefresh function", async () => {
+    const onPullToRefresh = jest.fn();
+    const { getByTestId } = render(
+      <ModelList
+        models={models}
+        onPullToRefresh={onPullToRefresh}
+        refresh={true}
+      />
+    );
+    const list = getByTestId("custom-list");
+    fireEvent(list, "refresh");
 
-    expect(customListComponent.props.contentContainerStyle).toBeDefined();
-    expect(customListComponent.props.data).toBe(mockModels);
-    expect(customListComponent.props.renderItem).toBeDefined();
-    expect(customListComponent.props.keyExtractor).toBeDefined();
+    await waitFor(() => {
+      expect(onPullToRefresh).toHaveBeenCalled();
+    });
   });
+
+  // Add more test cases as needed
 });

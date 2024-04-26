@@ -3,16 +3,21 @@ import React from "react";
 import { View } from "react-native";
 import { Header } from "react-native-elements";
 import { styles } from "./styles";
-interface CustomHeaderProps {}
+interface CustomHeaderProps {
+  title:string
+}
 
-const CustomHeader: React.FC<CustomHeaderProps> = ({}) => {
+const CustomHeader: React.FC<CustomHeaderProps> = ({title}) => {
   return (
     <View style={styles.container}>
       <Header
         leftComponent={{ icon: "menu", color: appColors.white }}
         centerComponent={{
-          text: "Dimond Mall",
+          text:title,
           style: { color: appColors.white },
+          iconStyle: {
+            color: appColors.white,
+          },
         }}
         rightContainerStyle={styles.rightContainerStyle}
         rightComponent={{ icon: "search", color: appColors.white }}

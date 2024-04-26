@@ -26,7 +26,7 @@ const MoviesScreen: React.FC = () => {
   };
   return (
     <View style={styles.container}>
-      <Header title="Genres" />
+      <Header title={translate('Movies')} />
       {isLoading || refresh ? (
         <Loading />
       ) : (

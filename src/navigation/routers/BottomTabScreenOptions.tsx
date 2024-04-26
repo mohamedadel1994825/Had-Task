@@ -6,11 +6,12 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 
 import CommunityIcon from "react-native-vector-icons/MaterialCommunityIcons";
 import { styles } from "./styles";
+import { translate } from "@language";
 export const BottomTabScreenOptions = () => {
   return {
     home: {
       tabBarColor: appColors.appColor,
-      tabBarLabel: <Text style={styles.tabBarLabel}>INICO</Text>,
+      tabBarLabel: <Text style={styles.tabBarLabel}>{translate('INICO')}</Text>,
       tabBarIcon: ({ color, focused }) => (
         <Ionicons
           name="grid-outline"
@@ -20,7 +21,7 @@ export const BottomTabScreenOptions = () => {
       ),
     },
     categories: {
-      tabBarLabel: <Text style={styles.tabBarLabel}>PROXIMITATE</Text>,
+      tabBarLabel: <Text style={styles.tabBarLabel}>{translate('PROXIMITATE')}</Text>,
       tabBarIcon: ({ color, focused }) => (
         <Ionicons
           name="play-circle-outline"
@@ -35,7 +36,7 @@ export const BottomTabScreenOptions = () => {
     },
 
     account: {
-      tabBarLabel: <Text style={styles.tabBarLabel}>ENTRADAS</Text>,
+      tabBarLabel: <Text style={styles.tabBarLabel}>{translate('ENTRADAS')}</Text>,
       tabBarIcon: ({ color, focused }) => (
         <CommunityIcon
           name="account"
