@@ -123,6 +123,7 @@ const appStyles = StyleSheet.create({
 
     elevation: 9,
   },
+
 });
 const markerBattery = {
   default: "#C0C0C0",

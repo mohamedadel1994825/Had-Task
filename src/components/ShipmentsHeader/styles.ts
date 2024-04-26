@@ -1,16 +1,20 @@
 import { Fonts } from "@assets";
-import { appColors, appStyles } from "@common";
+import { appColors } from "@common";
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
     container: {
-        ...appStyles.centerItems,
-        justifyContent: 'space-between',
+        width: '99%',
+        marginBottom: 10,
+        marginLeft: 15,
+        marginTop: 50
     },
     title: {
         fontSize: 20,
-        color: appColors.black,
-        fontFamily: Fonts?.appColorBold, // Replace 'Your-Font-Bold' with your font family
+        color: appColors.white,
+        fontFamily: Fonts?.appColorBold,
+        textAlign: 'left'
+        // Replace 'Your-Font-Bold' with your font family
     },
     checkboxContainer: {
         width: 95,

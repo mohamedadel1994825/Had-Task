@@ -10,20 +10,20 @@ export const BottomTabScreenOptions = () => {
   return {
     home: {
       tabBarColor: appColors.appColor,
-      tabBarLabel: <Text style={styles.tabBarLabel}>Shipments</Text>,
+      tabBarLabel: <Text style={styles.tabBarLabel}>INICO</Text>,
       tabBarIcon: ({ color, focused }) => (
-        <FontAwesome
-          name="cubes"
+        <Ionicons
+          name="grid-outline"
           size={24}
           color={focused ? appColors.appColor : color}
         />
       ),
     },
     categories: {
-      tabBarLabel: <Text style={styles.tabBarLabel}>scan</Text>,
+      tabBarLabel: <Text style={styles.tabBarLabel}>PROXIMITATE</Text>,
       tabBarIcon: ({ color, focused }) => (
         <Ionicons
-          name="scan"
+          name="play-circle-outline"
           size={24}
           color={focused ? appColors.appColor : color}
         />
@@ -33,18 +33,9 @@ export const BottomTabScreenOptions = () => {
       tabBarLabel: <Text style={styles.tabBarLabel} />,
       // tabBarIcon: middleAddIcon,
     },
-    cart: {
-      tabBarLabel: <Text style={styles.tabBarLabel}>wallet</Text>,
-      tabBarIcon: ({ color, focused }) => (
-        <CommunityIcon
-          name="wallet"
-          size={24}
-          color={focused ? appColors.appColor : color}
-        />
-      ),
-    },
+
     account: {
-      tabBarLabel: <Text style={styles.tabBarLabel}>profile</Text>,
+      tabBarLabel: <Text style={styles.tabBarLabel}>ENTRADAS</Text>,
       tabBarIcon: ({ color, focused }) => (
         <CommunityIcon
           name="account"

@@ -15,6 +15,7 @@ const useTheme = (theme: ThemeType) => {
 const useStatusBar = () => {
   useEffect(() => {
     StatusBar.setBarStyle("light-content", true);
+    StatusBar.setBackgroundColor(appColors.appColor);
   }, []);
 }
 
@@ -34,9 +35,8 @@ const useOnfocusedLoginStatusBar = () => {
 
 const useOnfocusedHomeStatusBar = () => {
   useFocusEffect(() => {
-    StatusBar.setHidden(false)
-    StatusBar.setBarStyle("dark-content", true);
-    StatusBar.setBackgroundColor(appColors.white)
+    // StatusBar.setHidden(true)
+    StatusBar.setBackgroundColor(appColors.transparent)
   })
     ;
 }

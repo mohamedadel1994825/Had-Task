@@ -1,65 +1,28 @@
-import { Fonts } from "@assets";
-import { appColors, calcFont } from "@common";
-import { CustomImage } from "@components";
+import { appColors } from "@common";
 import React from "react";
-import { Text, TouchableOpacity, View } from "react-native";
-import Icon from "react-native-vector-icons/Ionicons"; // Import Ionicons from react-native-vector-icons
+import { View } from "react-native";
+import { Header } from "react-native-elements";
 import { styles } from "./styles";
-interface CustomHeaderProps {
-  leftImageSource: any; // Type for left image source
-  centerImageSource: any; // Type for center image source
-  notificationIcon: string; // Type for notification icon name
-  onPressNotification?: () => void; // Optional function for notification icon press
-  userName: string;
-}
+interface CustomHeaderProps {}
 
-const CustomHeader: React.FC<CustomHeaderProps> = ({
-  leftImageSource,
-  centerImageSource,
-  notificationIcon,
-  onPressNotification,
-  userName,
-}) => {
+const CustomHeader: React.FC<CustomHeaderProps> = ({}) => {
   return (
     <View style={styles.container}>
-      <View style={styles.content}>
-        <CustomImage source={leftImageSource} style={styles.leftImage} />
-        <CustomImage source={centerImageSource} style={styles.centerImage} />
-        <TouchableOpacity
-          style={{
-            backgroundColor: appColors.gray,
-            padding: 5,
-            borderRadius: 25,
-          }}
-          onPress={onPressNotification}
-        >
-          <Icon
-            name={notificationIcon}
-            size={24}
-            style={styles.notificationIcon}
-          />
-        </TouchableOpacity>
-      </View>
-      <View>
-        <Text
-          style={{
-            color: appColors.graySubtitle,
-            fontSize: calcFont(17),
-            fontFamily: Fonts?.CenturyRegular,
-          }}
-        >
-          Hello,
-        </Text>
-        <Text
-          style={{
-            color: appColors.black,
-            fontSize: calcFont(20),
-            fontFamily: Fonts?.appColorBold,
-          }}
-        >
-          {userName}
-        </Text>
-      </View>
+      <Header
+        leftComponent={{ icon: "menu", color: appColors.white }}
+        centerComponent={{
+          text: "Dimond Mall",
+          style: { color: appColors.white },
+        }}
+        rightContainerStyle={styles.rightContainerStyle}
+        rightComponent={{ icon: "search", color: appColors.white }}
+        statusBarProps={{
+          backgroundColor: appColors.transparent,
+          translucent: true,
+        }}
+        backgroundColor={appColors.appColor}
+        containerStyle={styles.headerCont}
+      />
     </View>
   );
 };

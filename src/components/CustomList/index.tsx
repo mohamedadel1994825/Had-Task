@@ -12,6 +12,7 @@ const CustomList = <T,>({ ...props }: CustomListProps<T>): JSX.Element => {
         showsVerticalScrollIndicator={false}
         showsHorizontalScrollIndicator={false}
         contentContainerStyle={styles.customListContent}
+        style={styles.cont}
       />
     </View>
   );

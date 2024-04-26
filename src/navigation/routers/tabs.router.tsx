@@ -11,10 +11,11 @@ export default React.memo(() => {
     <>
       <BottomTabs.Navigator
         keyboardHidesNavigationBar={true}
-        
+        barStyle={{ backgroundColor: appColors.appColor }}
         initialRouteName="Home"
         sceneAnimationEnabled
-        activeColor={appColors.appColor}
+        activeColor={appColors.white}
+        inactiveColor={appColors.white}
       >
         <BottomTabs.Screen
           name="HomeScreen"
@@ -25,16 +26,6 @@ export default React.memo(() => {
           name="Categories"
           component={HomeRouter}
           options={BottomTabScreenOptions().categories}
-        />
-        {/* <BottomTabs.Screen
-          name="Deals"
-          component={HomeRouter}
-          options={BottomTabScreenOptions().deals}
-        /> */}
-        <BottomTabs.Screen
-          name="Cart"
-          component={HomeRouter}
-          options={BottomTabScreenOptions().cart}
         />
         <BottomTabs.Screen
           name="Account"

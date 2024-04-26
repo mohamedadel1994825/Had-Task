@@ -7,17 +7,7 @@ import React, { useEffect } from "react";
 import { enableFreeze, enableScreens } from "react-native-screens";
 
 import { useLoadConfigs } from "@hooks";
-
-import { LoadingComponent } from "@components";
-import { LoginStackProps } from "@interfaces";
-import { LoginScreen } from "@screens";
-import {
-  AppRootState,
-  UserRootState,
-  selectApp,
-  selectUser,
-  useAppSelector,
-} from "@store";
+import { AppRootState, selectApp, useAppSelector } from "@store";
 import { RootStackParamList } from "@types";
 import { setNavigationRef } from "./navigation";
 import TabsRouter from "./routers/tabs.router";
@@ -26,24 +16,9 @@ enableScreens(true);
 enableFreeze(false);
 
 const Stack = createNativeStackNavigator();
-const AuthStack = ({ isLoading }: LoginStackProps) => (
-  <Stack.Navigator
-    screenOptions={{ headerShown: false, gestureEnabled: false }}
-    initialRouteName={ScreenEnum.Loading} // Use ScreenEnum values here
-  >
-    <>
-      {isLoading ? (
-        <Stack.Screen name={ScreenEnum.Loading} component={LoadingComponent} />
-      ) : (
-        <Stack.Screen name={ScreenEnum.Login} component={LoginScreen} />
-      )}
-    </>
-  </Stack.Navigator>
-);
 
 const MainStack = () => (
   <Stack.Navigator
-    
     initialRouteName={ScreenEnum.Home} // Use ScreenEnum values here
     screenOptions={() => ({
       gestureEnabled: false,
@@ -60,17 +35,11 @@ const RootNavigator = (props: any) => {
   const navigationRef =
     React.useRef<NavigationContainerRef<RootStackParamList>>(null);
   const appSelector: AppRootState = useAppSelector(selectApp);
-  const userSelector: UserRootState = useAppSelector(selectUser);
-  const {
-    user: { userId },
-  } = userSelector;
   const { theme } = appSelector;
-  // console.log('initialSteps', initialSteps)
-  const { isLoading } = useLoadConfigs();
   useEffect(() => {
     setNavigationRef(navigationRef.current);
   }, []);
-
+  useLoadConfigs();
   // The following lines were added for nesting the sidebar routes
   return (
     <NavigationContainer
@@ -87,7 +56,7 @@ const RootNavigator = (props: any) => {
       }}
       ref={setNavigationRef}
     >
-      <>{!userId ? <AuthStack {...{ isLoading }} /> : <MainStack />}</>
+      <MainStack />
     </NavigationContainer>
   );
 };

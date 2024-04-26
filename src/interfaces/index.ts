@@ -1,1 +1,1 @@
-export * from './LoginStack'
+export * from './model'

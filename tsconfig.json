@@ -81,7 +81,7 @@
       "@common": ["./common", "./common/*"],
       "@reactquery": ["./reactquery"],
       "@reactotron": ["./reactotron"],
-      "@hooks": ["./hooks"],
+      "@hooks": ["./hooks", "./hooks/*"],
       "@language": ["./language"],
       "@theme": ["./theme"],
       "@navigation": ["./navigation"],

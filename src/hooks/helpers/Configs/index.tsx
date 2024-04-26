@@ -55,6 +55,8 @@ const useLocalization = () => {
     const lang = getLocalization();
     if (lang) {
       setAppLang(dispatch, lang);
+    } else {
+      setAppLang(dispatch, "en");
     }
     return () => {};
   }, []);

@@ -2,7 +2,7 @@ import {
   createStackNavigator,
   StackNavigationOptions,
 } from "@react-navigation/stack";
-import { HomeScreen } from "@screens";
+import { MoviesScreen, HomeScreen } from "@screens";
 import * as React from "react";
 
 const HomeStack = createStackNavigator<any>();
@@ -23,6 +23,12 @@ export default () => {
       <HomeStack.Screen
         name="Home"
         component={HomeScreen}
+        options={{ headerShown: false }}
+        // options={generateScreenOptions}
+      />
+      <HomeStack.Screen
+        name="Genres"
+        component={MoviesScreen}
         options={{ headerShown: false }}
         // options={generateScreenOptions}
       />
