@@ -5,9 +5,12 @@ import React, { memo } from "react";
 import { ImageBackground, Text, TouchableOpacity } from "react-native";
 import FastImage from "react-native-fast-image";
 import { styles } from "./styles";
+import { CustomImage } from "@components";
 
 const ModelCard: React.FC<Model> = memo(({ item }) => {
-  const { title, backdrop_path } = item;
+  const { backdrop_path } = item;
+  const name = item?.name ? item?.name : item?.title;
+  console.log("item", item);
   const route = useRoute();
   const isHomeScreen = route.name == "Home";
   const customStyle = {
@@ -20,14 +23,14 @@ const ModelCard: React.FC<Model> = memo(({ item }) => {
   };
   return (
     <TouchableOpacity testID="model-card">
-      <ImageBackground
+      <CustomImage
         testID="model-image"
         resizeMode={FastImage.resizeMode.cover}
         source={{ uri: `${imagesUrl}` + "/2KGxQFV9Wp1MshPBf8BuqWUgVAz.jpg" }}
         style={[styles.container, customStyle]}
       >
-        <Text style={[styles.nameText, customTitleStyle]}>{title}</Text>
-      </ImageBackground>
+        <Text style={[styles.nameText, customTitleStyle]}>{name}</Text>
+      </CustomImage>
     </TouchableOpacity>
   );
 });
