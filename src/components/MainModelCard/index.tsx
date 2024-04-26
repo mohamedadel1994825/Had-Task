@@ -1,17 +1,11 @@
 import { imagesUrl } from "@common";
+import { CustomImage } from "@components";
 import { useMovies } from "@hooks";
 import { Model } from "@interfaces";
 import React, { memo } from "react";
-import {
-  ActivityIndicator,
-  ImageBackground,
-  Text,
-  TouchableOpacity,
-  View,
-} from "react-native";
+import { ActivityIndicator, Text, TouchableOpacity, View } from "react-native";
 import FastImage from "react-native-fast-image";
 import { styles } from "./styles";
-import { CustomImage } from "@components";
 
 const MainModelCard: React.FC<Model> = memo(({}) => {
   const { movies, isLoading } = useMovies();
