@@ -1,7 +1,9 @@
 This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
 # Demo
+record: 
 https://drive.google.com/file/d/1qmXszeHgTSxSwRpwBB6xhSgvLjRWK9Qp/view
+apk:
 https://drive.google.com/file/d/1gTDCSt1rZsSa1HiGsEvQpOG_lUGMnPOz/view
 # Getting Started
 
